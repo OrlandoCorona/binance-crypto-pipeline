@@ -45,3 +45,7 @@ notebooks/.ipynb_checkpoints/
 # ── OS ────────────────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+logs/
+crypto_datalake/
+data/
+*.log

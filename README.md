@@ -10,6 +10,10 @@ End-to-end data pipeline that ingests historical cryptocurrency OHLCV data from 
 
 ---
 
+## Dashboard (Power BI)
+
+![Executive Summary — Power BI dashboard](dashboard/screenshots/executive_summary.png)
+
 ## Key Findings
 
 Backtesting two calendar-based strategies across 4 assets (BTCUSDT, ETHUSDT, BNBUSDT, SOLUSDT) — last 13 months of out-of-sample data:
@@ -87,7 +91,7 @@ Binance API
 ## Project Structure
 
 ```
-binance-crypto-datalake/
+binance-crypto-pipeline/
 │
 ├── data/               # Pipeline outputs (gitignored)
 │   ├── raw/
@@ -148,8 +152,8 @@ binance-crypto-datalake/
 
 ```bash
 # 1. Clone and install
-git clone https://github.com/YOUR_USERNAME/binance-crypto-datalake.git
-cd binance-crypto-datalake
+git clone https://github.com/OrlandoCorona/binance-crypto-pipeline.git
+cd binance-crypto-pipeline
 pip install -r requirements.txt
 
 # 2. Configure environment
