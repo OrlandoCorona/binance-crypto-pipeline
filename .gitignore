@@ -1,0 +1,47 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+build/
+
+# ── Entorno virtual ───────────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Variables de entorno (NUNCA subir a Git) ──────────────────────────────────
+.env
+
+# ── Datos (archivos pesados, no van en Git) ───────────────────────────────────
+data/raw/
+data/processed/
+data/exports/
+data/reports/
+crypto_datalake/raw/
+crypto_datalake/processed/
+*.zip
+*.parquet
+*.csv
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+logs/*.log
+
+# ── Power BI ──────────────────────────────────────────────────────────────────
+dashboard/powerbi/*.pbix
+
+# ── Notebooks checkpoints ─────────────────────────────────────────────────────
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# ── IDEs ──────────────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
