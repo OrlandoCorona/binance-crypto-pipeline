@@ -1,0 +1,66 @@
+# Backtest profesional — buy_and_hold
+## Alcance
+Este reporte evalúa una estrategia dentro de un framework spot long-only con cero lookahead operativo.
+La señal calculada en la vela `t` se ejecuta hasta la apertura de la vela `t+1`.
+## Configuración
+- Símbolo: `BTCUSDT`
+- Intervalo: `1h`
+- Capital inicial: `10000.0`
+- Comisión por operación: `0.001`
+- Slippage estimado: `0.0005`
+- Factor de anualización: `8760.0`
+- Split in-sample: `70.00%`
+## Métricas globales
+| Métrica | Valor |
+|---|---:|
+| total_return | 0.953312 |
+| cagr | 0.143229 |
+| sharpe | 0.517785 |
+| sortino | 0.661834 |
+| calmar | 0.185527 |
+| max_drawdown | -0.772008 |
+| final_equity | 19533.119175 |
+| mean_period_return | 0.000032 |
+| std_period_return | 0.005715 |
+| trade_count | 1.000000 |
+| win_rate | 1.000000 |
+| profit_factor | nan |
+| expectancy | 0.951915 |
+| average_trade_return | 0.951915 |
+| average_bars_held | 43821.000000 |
+| buy_hold_total_return | 0.984887 |
+| buy_hold_cagr | 0.143577 |
+| buy_hold_sharpe | 0.523779 |
+| buy_hold_sortino | 0.669564 |
+| buy_hold_calmar | 0.185979 |
+| buy_hold_max_drawdown | -0.772008 |
+| buy_hold_final_equity | 19848.869190 |
+| buy_hold_mean_period_return | 0.000032 |
+| buy_hold_std_period_return | 0.005715 |
+| buy_hold_trade_count | 1.000000 |
+| buy_hold_win_rate | 1.000000 |
+| buy_hold_profit_factor | nan |
+| buy_hold_expectancy | 0.984887 |
+| buy_hold_average_trade_return | 0.984887 |
+| buy_hold_average_bars_held | 43816.000000 |
+
+## Métricas In-Sample / Out-of-Sample
+| sample | total_return | cagr | sharpe | sortino | calmar | max_drawdown | final_equity | mean_period_return | std_period_return | trade_count | win_rate | profit_factor | expectancy | average_trade_return | average_bars_held | buy_hold_total_return | buy_hold_cagr | buy_hold_sharpe | buy_hold_sortino | buy_hold_calmar | buy_hold_max_drawdown | buy_hold_final_equity | buy_hold_mean_period_return | buy_hold_std_period_return | buy_hold_trade_count | buy_hold_win_rate | buy_hold_profit_factor | buy_hold_expectancy | buy_hold_average_trade_return | buy_hold_average_bars_held |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| full | 0.953312 | 0.143229 | 0.517785 | 0.661834 | 0.185527 | -0.772008 | 19533.119175 | 0.000032 | 0.005715 | 1.000000 | 1.000000 | nan | 0.951915 | 0.951915 | 43821.000000 | 0.984887 | 0.143577 | 0.523779 | 0.669564 | 0.185979 | -0.772008 | 19848.869190 | 0.000032 | 0.005715 | 1.000000 | 1.000000 | nan | 0.984887 | 0.984887 | 43816.000000 |
+| in_sample | 1.553892 | 0.307090 | 0.756058 | 0.968083 | 0.397781 | -0.772008 | 25538.916527 | 0.000049 | 0.006053 | 1.000000 | 1.000000 | nan | 1.553728 | 1.553728 | 30675.000000 | 1.595175 | 0.307660 | 0.764128 | 0.978543 | 0.398519 | -0.772008 | 25951.749378 | 0.000049 | 0.006053 | 1.000000 | 1.000000 | nan | 1.595175 | 1.595175 | 30670.000000 |
+| out_of_sample | -0.235988 | -0.164211 | -0.169883 | -0.217467 | -0.327873 | -0.500838 | 7640.120022 | -0.000009 | 0.004836 | 1.000000 | 0.000000 | 0.000000 | -0.238381 | -0.238381 | 13143.000000 | -0.238488 | -0.163376 | -0.174683 | -0.223630 | -0.326206 | -0.500838 | 7615.123139 | -0.000009 | 0.004836 | 1.000000 | 0.000000 | 0.000000 | -0.238488 | -0.238488 | 13145.000000 |
+
+## Interpretación técnica
+- El resultado global debe compararse contra Buy & Hold, no solo contra cero.
+- Si una estrategia gana in-sample pero falla out-of-sample, puede estar sobreajustada.
+- Si el Sharpe es positivo pero el Max Drawdown es alto, el riesgo puede no compensar.
+- Si el Profit Factor depende de muy pocas operaciones, la evidencia es débil.
+- Si el desempeño se concentra en un periodo específico, debe validarse por régimen y por año.
+
+## Sesgos que este framework busca reducir
+1. Lookahead bias: señales se desplazan una vela antes de ejecutarse.
+2. Costos ignorados: se descuentan comisión y slippage.
+3. Validación temporal incorrecta: el split es cronológico, no aleatorio.
+4. Benchmark ausente: se compara contra Buy & Hold.
+5. Métricas incompletas: se reportan retorno, drawdown, Sharpe, Sortino, Calmar, Profit Factor, Expectancy y Win Rate.

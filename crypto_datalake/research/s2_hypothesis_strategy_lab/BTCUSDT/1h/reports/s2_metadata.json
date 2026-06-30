@@ -1,0 +1,27 @@
+{
+  "symbol": "BTCUSDT",
+  "interval": "1h",
+  "input": "/sessions/vibrant-affectionate-meitner/mnt/binance_crypto_datalake_pipeline_project/crypto_datalake/research/quant_eda/BTCUSDT/1h/BTCUSDT_1h_quant_eda_enriched.parquet",
+  "rows": 43817,
+  "start_utc": "2021-06-01 00:00:00+00:00",
+  "end_utc": "2026-05-31 23:00:00+00:00",
+  "config": {
+    "initial_capital": 10000.0,
+    "commission_rate": 0.001,
+    "slippage_rate": 0.0005,
+    "annualization_factor": 8760.0,
+    "split_ratio": 0.7,
+    "monte_carlo_runs": 500,
+    "monte_carlo_block_size": 24,
+    "random_seed": 42,
+    "min_trades_for_candidate": 30
+  },
+  "strategies_evaluated": [
+    "S2_H1_TUESDAY_24H_LONG",
+    "S2_H2_WEDNESDAY_LONG",
+    "S2_H3_HOUR21_LONG",
+    "S2_H4_AVOID_THURSDAY",
+    "S2_H5_AVOID_LOW_RANGE_CONTRACTION",
+    "S2_H6_AVOID_THU_AND_CONTRACTION"
+  ]
+}

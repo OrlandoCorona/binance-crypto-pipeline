@@ -1,0 +1,33 @@
+{
+  "generated_at_utc": "2026-06-19T06:49:44.629492+00:00",
+  "input_path": "crypto_datalake\\research\\quant_eda\\BTCUSDT\\1h\\BTCUSDT_1h_quant_eda_enriched.parquet",
+  "output_dir": "crypto_datalake\\research\\q5_patterns\\BTCUSDT\\1h",
+  "config": {
+    "symbol": "BTCUSDT",
+    "interval": "1h",
+    "forward_horizons": [
+      1,
+      6,
+      24
+    ],
+    "momentum_windows": [
+      3,
+      6,
+      24
+    ],
+    "rolling_context_window": 168,
+    "short_vol_window": 24,
+    "long_vol_window": 168,
+    "low_quantile": 0.2,
+    "high_quantile": 0.8,
+    "bootstrap_runs": 500,
+    "min_samples_for_evidence": 100,
+    "random_seed": 42
+  },
+  "methodology": {
+    "optimization": "No parameter optimization. Fixed observational windows and fixed rolling quantiles.",
+    "forward_returns": "Forward returns are used only for evidence measurement, not for condition construction.",
+    "rolling_thresholds": "Rolling quantile thresholds are shifted by one candle to use only past information.",
+    "evidence_rule": "Bootstrap confidence interval for mean difference versus baseline. Conservative classification."
+  }
+}
