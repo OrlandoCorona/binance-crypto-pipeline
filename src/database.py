@@ -131,29 +131,23 @@ def save_klines(df: pd.DataFrame, if_exists: str = "append") -> int:
 
     rows = [tuple(row) for row in df_to_save.to_numpy()]
 
+    conn = get_connection()
     try:
-        with get_connection() as conn:
+        with Timer(f"save_klines {symbol}") as t:
             with conn.cursor() as cur:
-                with Timer(f"save_klines {symbol}") as t:
-                    execute_values(
-                        cur,
-                        query,
-                        rows,
-                        page_size=1000,
-                    )
-
-            conn.commit()
-
+                execute_values(cur, query, rows, page_size=1000)
+        conn.commit()
         log.info(
             "Upserted %d rows for %s to klines in %s",
             len(df_to_save), symbol, t.elapsed_str
         )
-
         return len(df_to_save)
-
     except Exception as e:
+        conn.rollback()
         log.error("Failed to upsert klines for %s: %s", symbol, e)
         raise
+    finally:
+        conn.close()  # FIX: psycopg2 context manager commits/rolls back but never closes
 
 
 def save_quality_results(results: list[dict], symbol: str, interval: str = "1h") -> None:
@@ -195,19 +189,22 @@ def save_quality_results(results: list[dict], symbol: str, interval: str = "1h")
         VALUES %s
     """
 
+    conn = get_connection()
     try:
-        with get_connection() as conn:
-            with conn.cursor() as cur:
-                cur.execute(
-                    "DELETE FROM data_quality WHERE symbol = %s AND interval = %s",
-                    (symbol, interval),
-                )
-                execute_values(cur, insert_query, rows)
-            conn.commit()
+        with conn.cursor() as cur:
+            cur.execute(
+                "DELETE FROM data_quality WHERE symbol = %s AND interval = %s",
+                (symbol, interval),
+            )
+            execute_values(cur, insert_query, rows)
+        conn.commit()
         log.info("Saved %d quality checks for %s", len(rows), symbol)
     except Exception as e:
+        conn.rollback()
         log.error("Failed to save quality results for %s: %s", symbol, e)
         raise
+    finally:
+        conn.close()  # FIX: explicit close ÔÇö psycopg2 context manager does not close
 
 
 def save_backtest_results(df_results: pd.DataFrame) -> None:
