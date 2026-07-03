@@ -1,6 +1,6 @@
 r"""
 Q4 — Laboratorio de Investigación Cuantitativa
-Autor: ChatGPT para Orlando
+Autor: Carlos Orlando Meneses Corona
 
 Objetivo:
     Evaluar hipótesis de mercado con disciplina cuantitativa, evitando concluir
