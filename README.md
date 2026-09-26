@@ -16,6 +16,12 @@ End-to-end data pipeline that ingests historical cryptocurrency OHLCV data from 
 
 ## Key Findings
 
+New experiment: [H2 mean reversion + causal Bull walk-forward protocol](docs/h2_bull_protocol.md).
+This is separate from the calendar strategies below. Its 24/3-month evaluation
+selects H2 inside each training window and protects data from June 2026 onward.
+Implementation is tested with synthetic data; no new historical performance
+claim has been established.
+
 Backtesting two calendar-based strategies across 4 assets (BTCUSDT, ETHUSDT, BNBUSDT, SOLUSDT) — last 13 months of out-of-sample data:
 
 | Strategy | Asset | Return | Sharpe | Max DD | Beat BH |
