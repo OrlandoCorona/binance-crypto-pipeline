@@ -4,7 +4,7 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?logo=postgresql&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-2.0+-150458?logo=pandas&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
-![License: MIT](https://img.shields.io/badge/License-MIT-green)
+License: MIT
 
 End-to-end data pipeline that ingests historical cryptocurrency OHLCV data from Binance, validates and stores it in PostgreSQL, and surfaces quantitative trading strategy results in a Power BI executive dashboard.
 
