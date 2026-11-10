@@ -4,8 +4,6 @@ r"""
 Q6 — Motor de Backtest Unificado (Shared Backtest Engine)
 ==========================================================
 
-Rol: Ingeniero de Software Cuantitativo.
-
 Problema que resuelve:
     Q3, Q4, S2, S3 y S4 reimplementan su propio motor de backtest de forma
     independiente, acumulando divergencias confirmadas en el Code Review:
@@ -15,8 +13,6 @@ Problema que resuelve:
       - El bloque de deduplicación varía entre módulos.
 
     Q6 centraliza toda la lógica de backtest en un módulo importable.
-    Todos los scripts futuros (y las próximas correcciones de S2/S3/Q4)
-    deben importar desde aquí en vez de reimplementar.
 
 Contenido:
     1. BacktestConfig — configuración única y tipada.
