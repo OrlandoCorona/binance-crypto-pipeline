@@ -3,8 +3,7 @@
 r"""
 S3 - Detector de Sobreajuste / Walk-Forward con reglas congeladas
 
-Rol: auditor cuantitativo.
-Objetivo: intentar destruir hipótesis S2_H2_WEDNESDAY_LONG y S2_H4_AVOID_THURSDAY.
+Evalúa la robustez de S2_H2_WEDNESDAY_LONG y S2_H4_AVOID_THURSDAY.
 
 Este script NO optimiza parámetros, NO busca una estrategia mejor y NO cambia reglas.
 Evalúa:

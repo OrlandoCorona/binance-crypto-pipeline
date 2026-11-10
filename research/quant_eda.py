@@ -1041,7 +1041,7 @@ Este análisis debe usarse para decidir cómo segmentar el mercado antes de dise
 4. ¿El volumen ayuda a explicar volatilidad?
 5. ¿Los resultados se mantienen por año o dependen de pocos eventos extremos?
 
-Siguiente paso recomendado: crear un notebook o script de features cuantitativas, separando el dataset por año y por régimen de volatilidad para evitar conclusiones sobreajustadas.
+Limitación: los resultados agregados requieren validación temporal y por régimen de volatilidad para evaluar sobreajuste.
 """
 
     return report

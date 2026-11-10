@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
-S4 — Validación institucional (Director de Investigación / mesa de fondo)
+S4 — Validación de robustez
 
-Rol: la última puerta antes de considerar capital real. Simula el tipo de
-revisión que haría un comité de riesgo de un fondo antes de asignar capital
-a una regla de trading: distintos regímenes de mercado, costos de ejecución
-de tamaño institucional, Monte Carlo con probabilidad de ruina y un stress
-test directo sobre los peores drawdowns históricos del benchmark.
+Evalúa reglas de trading en distintos regímenes de mercado, con escenarios
+de costos de ejecución, Monte Carlo con probabilidad de ruina y pruebas
+de estrés sobre los peores drawdowns históricos del benchmark.
 
 Regla de oro de este módulo (heredada de Q4):
     NUNCA se aprueba una estrategia solo porque esta capa salió bien.
