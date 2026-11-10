@@ -1,24 +1,4 @@
-"""
-rebuild_datalake.py — Reconstruye el data lake de BTCUSDT desde data.binance.vision
-
-Descarga las velas horarias (klines 1h) de BTCUSDT del archivo PUBLICO de Binance,
-verifica su integridad (SHA256), las une en un solo DataFrame limpio y lo guarda
-como Parquet en la ruta EXACTA que espera tu pipeline:
-    crypto_datalake/processed/binance/spot/klines/BTCUSDT/1h/BTCUSDT_1h_<ini>_to_<fin>.parquet
-
-v2: (1) maneja que Binance MEZCLA milisegundos (datos viejos) y microsegundos
-        (2025+) en el mismo historico -> decide la unidad POR VALOR.
-    (2) cachea los ZIP en crypto_datalake/raw/ -> los re-runs no vuelven a descargar.
-
-No necesita cuenta ni API key. Corre en TU maquina, dentro de la raiz del proyecto.
-
-Uso:
-    python rebuild_datalake.py
-    python rebuild_datalake.py --symbol BTCUSDT --interval 1h --start 2021-06 --end 2026-05
-
-Requisitos:
-    pip install requests pandas pyarrow
-"""
+"""Descarga, valida y consolida velas de Binance en archivos Parquet."""
 
 from __future__ import annotations
 import argparse

@@ -1,8 +1,7 @@
 """
 config.py — Configuración centralizada del proyecto.
 
-Todas las rutas, símbolos y parámetros viven aquí.
-Si necesitas cambiar algo, lo cambias en un solo lugar.
+Centraliza rutas, símbolos y parámetros del pipeline.
 """
 
 import os
