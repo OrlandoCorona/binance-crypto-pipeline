@@ -24,14 +24,6 @@ Principios anti-sobreajuste
 - Usa umbrales cuantílicos rolling calculados solo con pasado.
 - Reporta frecuencia, estadística y evidencia, incluso si no hay ventaja.
 - Compara retornos forward condicionales contra la línea base del mercado.
-
-Ejemplo de ejecución PowerShell
--------------------------------
-python q5_pattern_discovery.py `
-  --input .\crypto_datalake\research\quant_eda\BTCUSDT\1h\BTCUSDT_1h_quant_eda_enriched.parquet `
-  --output-dir .\crypto_datalake\research\q5_patterns\BTCUSDT\1h `
-  --symbol BTCUSDT `
-  --interval 1h
 """
 
 from __future__ import annotations

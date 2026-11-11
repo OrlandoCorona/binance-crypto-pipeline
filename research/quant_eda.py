@@ -7,13 +7,6 @@ Objetivo:
 - Estudiar estadísticamente el comportamiento del mercado antes de diseñar estrategias.
 - NO genera señales de compra o venta.
 - Genera gráficos, tablas y un reporte interpretativo automático.
-
-Uso recomendado desde PowerShell:
-.\.venv\Scripts\python.exe 02_quant_eda.py `
-  --input .\crypto_datalake\processed\binance\spot\klines\BTCUSDT\1h\BTCUSDT_1h_2021-06_to_2026-05.parquet `
-  --output-dir .\crypto_datalake\research\quant_eda\BTCUSDT\1h `
-  --symbol BTCUSDT `
-  --interval 1h
 """
 
 from __future__ import annotations
